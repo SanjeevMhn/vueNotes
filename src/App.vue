@@ -1,18 +1,26 @@
 <script>
 	import Navbar from './components/Navbar.vue';
+	import NotesContainer from './components/NotesContainer.vue';
+	import CreateNote from './components/CreateNote.vue';
 	export default{
 		components:{
-			Navbar
+			Navbar,
+			NotesContainer,
+			CreateNote,
 		},
 		data(){
 			return{
-				title: "Vue Notes"
+				title: "Vue Notes",
+				notes: [],
+				favorites: [],
 			}
 		}
 	}
 </script>
 <template>
-	<Navbar/>
+	<Navbar :favorites=favorites />
+	<CreateNote :notes=notes />
+	<NotesContainer :notes=notes :favorites=favorites />
 </template>
 
 <style>

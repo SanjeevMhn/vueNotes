@@ -1,9 +1,11 @@
 <script>
     export default{
         name: "Navbar",
+        props: ['favorites'],
         data(){
             return{
-                menus: ["Home","Create Note","Favorites","Profile"]
+                menus: ["Home","Favorites","Settings"],
+                favs: this.favorites
             }
         } 
     }
@@ -27,6 +29,7 @@
                <a href="javascript:void(0)" class="nav-list__link-item">
                    {{menu}}
                </a>
+                <div class="counter" v-if="index===1">{{this.favs.length}}</div>
             </li> 
         </ul>
     </nav>
@@ -45,6 +48,10 @@
         align-items: center;
         color: #fff;
         gap: 2rem;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        border-bottom: 1px solid #fff;
     }
     .primary-nav .primary-nav__brand{
         font-size: 2rem;
@@ -72,6 +79,7 @@
         right: 15px;
         /* color: #090909; */
         color: #fff;
+        cursor: pointer;
     }
     .primary-nav .side-nav-toggler{
         padding: 0;
@@ -82,6 +90,7 @@
         border: none;
         outline: none;
         margin-left: auto;
+        cursor: pointer;
     }
 
     .primary-nav .nav-list{
@@ -101,6 +110,24 @@
         display: flex;
         align-items: center;
     } 
+    .nav-list .nav-list__item{
+        position: relative;
+    }
+    .nav-list .nav-list__item .counter{
+        position: absolute;
+        top: -2px;
+        right: 0;
+        background: red;    
+        color: #fff;
+        padding: 0;
+        height: 22px;
+        width: 22px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        font-size: 0.95rem;
+    }
     .nav-list .nav-list__item--active{
         position: relative;
         display: flex;
@@ -135,8 +162,6 @@
         .primary-nav .search-section{
             min-width: 25rem;
         }
-        
-        
     }
 
     @media screen and (min-width: 1200px) {
