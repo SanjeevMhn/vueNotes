@@ -1,7 +1,7 @@
 <script>
     import NotesCard from "./NotesCard.vue"
     export default{
-        props: ['notes','favorites'],
+        props: ['notes','favorites','searchText'],
         components: {NotesCard},
         name: "NotesContainer",
     }

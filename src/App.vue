@@ -1,4 +1,5 @@
 <script>
+	//TODO: added search feature//
 	import Navbar from './components/Navbar.vue';
 	import NotesContainer from './components/NotesContainer.vue';
 	import CreateNote from './components/CreateNote.vue';
@@ -13,14 +14,15 @@
 				title: "Vue Notes",
 				notes: [],
 				favorites: [],
+				searchText: "",
 			}
 		}
 	}
 </script>
 <template>
-	<Navbar :favorites=favorites />
+	<Navbar :favorites=favorites :searchText=searchText />
 	<CreateNote :notes=notes />
-	<NotesContainer :notes=notes :favorites=favorites />
+	<NotesContainer :notes=notes :favorites=favorites :searchText=searchText />
 </template>
 
 <style>

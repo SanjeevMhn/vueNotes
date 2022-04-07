@@ -96,7 +96,7 @@
         cursor: pointer;
     }
     .note-card__actions .action-favorite .bi-heart-fill{
-       color: red; 
+       color:tomato; 
     }
     .favorite{
         display: flex;

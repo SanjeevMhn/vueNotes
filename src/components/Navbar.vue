@@ -1,11 +1,11 @@
 <script>
     export default{
         name: "Navbar",
-        props: ['favorites'],
+        props: ['favorites','searchText'],
         data(){
             return{
                 menus: ["Home","Favorites","Settings"],
-                favs: this.favorites
+                favs: this.favorites,
             }
         } 
     }
@@ -18,7 +18,7 @@
             <i class="bi bi-file-earmark-richtext"></i>
         </div>
         <div class="search-section">
-            <input type="text" name="search" id="" class="search-input" placeholder="Search Notes...">
+            <input type="text" name="search" id="" class="search-input" placeholder="Search Notes..." v-bind="this.searchText">
             <i class="bi bi-search"></i>
         </div>
         <button class="side-nav-toggler" type="button">
@@ -117,7 +117,7 @@
         position: absolute;
         top: -2px;
         right: 0;
-        background: red;    
+        background: tomato;    
         color: #fff;
         padding: 0;
         height: 22px;
