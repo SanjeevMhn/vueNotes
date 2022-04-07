@@ -19,6 +19,9 @@
             <input type="text" name="search" id="" class="search-input" placeholder="Search Notes...">
             <i class="bi bi-search"></i>
         </div>
+        <button class="side-nav-toggler" type="button">
+            <i class="bi bi-list"></i>
+        </button>
         <ul class="nav-list">
            <li class="nav-list__item" :class="{'nav-list__item--active':index===0}" v-for="(menu,index) in menus" :key="index">
                <a href="javascript:void(0)" class="nav-list__link-item">
@@ -35,7 +38,8 @@
         --nav-color: #272932;
         width: 100%;
         background-color: var(--nav-color);
-        padding: 1rem 4rem;
+        /* padding: 1rem 4rem; */
+        padding: 1rem;
         display: flex;
         font-family: 'Poppins',sans-serif;
         align-items: center;
@@ -50,7 +54,7 @@
         position: relative;
         display: flex;
         align-items: center;
-        min-width: 25rem;
+        /* min-width: 25rem; */
     }
     .primary-nav .search-section .search-input{
         margin: 0;
@@ -58,21 +62,34 @@
         font-size: 1.2rem;
         color: #090909;
         padding: 0.65rem;
+        display: none;
         border-radius: 8px;
         outline: none;
         border: none;
     }
     .primary-nav .search-section i{
-        position: absolute;
         font-size: 1.25rem;
         right: 15px;
-        color: #090909;
+        /* color: #090909; */
+        color: #fff;
     }
+    .primary-nav .side-nav-toggler{
+        padding: 0;
+        margin: 0;
+        background: none;
+        color: #fff;
+        font-size: 1.75rem;
+        border: none;
+        outline: none;
+        margin-left: auto;
+    }
+
     .primary-nav .nav-list{
+        display: none;
         list-style-type: none;
         padding: 0;
         margin: 0;  
-        display: flex;
+        /* display: flex; */
         gap: 0.75rem;
         margin-left: auto;
     }
@@ -96,5 +113,38 @@
         position: absolute;
         bottom: 0;
         background-color: #fff;
+    }
+
+    @media screen and (min-width: 768px){
+        .primary-nav .search-section{
+            min-width: 20rem;
+        }
+        .primary-nav .search-section .search-input{
+            display: block;
+        }
+        .primary-nav .search-section i{
+            position: absolute;
+            color: #090909;
+        }
+    }
+
+    @media screen and (min-width: 992px){
+        .primary-nav{
+            padding: 1rem 4rem;
+        }
+        .primary-nav .search-section{
+            min-width: 25rem;
+        }
+        
+        
+    }
+
+    @media screen and (min-width: 1200px) {
+       .primary-nav .nav-list{
+           display: flex;
+       } 
+       .primary-nav .side-nav-toggler{
+           display: none;
+       }
     }
 </style>
