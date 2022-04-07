@@ -10,8 +10,11 @@
         methods:{
             deleteNote(id){
                 let note = this.notes.find(note=>note.id===id);
-                let noteIndex = this.notes.indexOf(note)
+                let favNote = this.favorites.find(fav=>fav.id==note.id);
+                let noteIndex = this.notes.indexOf(note);
+                let favNoteIndex = this.favorites.indexOf(favNote);
                 this.notes.splice(noteIndex,1);
+                this.favorites.splice(favNoteIndex,1);
             },
             checkFavorites(id){
                 let check = this.favorites.find(fav => fav.id === id);
