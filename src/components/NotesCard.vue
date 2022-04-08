@@ -17,7 +17,7 @@
                 this.favorites.splice(favNoteIndex,1);
             },
             checkFavorites(id){
-                let check = this.favorites.find(fav => fav.id === id);
+                let check = this.favorites.filter(fav => fav.id === id)[0];
                 console.log(check);
                 if(check){
                     return true;

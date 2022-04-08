@@ -6,7 +6,14 @@
             return{
                 menus: ["Home","Favorites","Settings"],
                 favs: this.favorites,
+                search: ""
             }
+        },
+        methods:{
+           submit(){
+               this.$emit("inputData",this.search);
+               console.log(this.search);
+           } 
         } 
     }
 </script>
@@ -18,7 +25,7 @@
             <i class="bi bi-file-earmark-richtext"></i>
         </div>
         <div class="search-section">
-            <input type="text" name="search" id="" class="search-input" placeholder="Search Notes..." v-bind="this.searchText">
+            <input type="text" name="search" id="" class="search-input" placeholder="Search Notes..." v-model="search" @change="submit">
             <i class="bi bi-search"></i>
         </div>
         <button class="side-nav-toggler" type="button">

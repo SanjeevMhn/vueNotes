@@ -1,5 +1,6 @@
 <script>
-	//TODO: added search feature//
+	//TODO: add search feature//
+	//TODO: add routing feature//
 	import Navbar from './components/Navbar.vue';
 	import NotesContainer from './components/NotesContainer.vue';
 	import CreateNote from './components/CreateNote.vue';
@@ -16,13 +17,18 @@
 				favorites: [],
 				searchText: "",
 			}
+		},
+		methods:{
+			updateNotes(value){
+				this.searchText = value;
+			}
 		}
 	}
 </script>
 <template>
-	<Navbar :favorites=favorites :searchText=searchText />
+	<Navbar :favorites=favorites @inputData="updateNotes" />
 	<CreateNote :notes=notes />
-	<NotesContainer :notes=notes :favorites=favorites :searchText=searchText />
+	<router-view />
 </template>
 
 <style>
