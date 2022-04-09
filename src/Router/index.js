@@ -9,16 +9,14 @@ const router = createRouter({
             path: '/',
             name: 'home',
             component: NotesContainer,
-            props: {
-                notes: notes,
-                favorites: favorites,
-                searchText: searchText
-            }
+            props: true,
+
         },
         {
             path: '/favorites',
             name: 'favorites',
-            component: FavoriteContainer
+            component: FavoriteContainer,
+            props: true
         }
     ]
 })

@@ -28,7 +28,7 @@
 <template>
 	<Navbar :favorites=favorites @inputData="updateNotes" />
 	<CreateNote :notes=notes />
-	<router-view />
+	<NotesContainer :notes=notes :favorites=favorites :searchText=searchText  />
 </template>
 
 <style>
